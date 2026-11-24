@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sirius.local/schemas/ipc-schema.json",
+  "title": "SiriusIPCProtocol",
+  "description": "Authenticated WebSocket IPC protocol shared across Sirius Python Daemon, Tauri v2 HUD, and Manifest V3 Browser Extension.",
+  "$defs": {
+    "AgentState": {
+      "type": "string",
+      "enum": [
+        "SLEEPING",
+        "LISTENING",
+        "THINKING",
+        "EXECUTING",
+        "SPEAKING",
+        "AWAITING_CONFIRMATION"
+      ]
+    },
+    "RiskLevel": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH_IRREVERSIBLE", "BLOCKED"]
+    },
+    "ControlTier": {
+      "type": "string",
+      "enum": [
+        "TIER1_NATIVE",
+        "TIER2_ACCESSIBILITY",
+        "TIER3_VISION",
+        "BROWSER_CDP",
+        "BROWSER_EXTENSION",
+        "MCP_TOOL",
+        "MEMORY"
+      ]
+    },
+    "PlanStep": {
+      "type": "object",
+      "required": ["step_id", "description", "tier", "status"],
+      "properties": {
+        "step_id": { "type": "string" },
+        "description": { "type": "string" },
+        "tier": { "$ref": "#/$defs/ControlTier" },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "running", "verified", "failed", "skipped"]
+        }
+      }
+    }
+  }
+}

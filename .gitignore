@@ -1,0 +1,25 @@
+# Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Node / pnpm / Vite / Tauri
+node_modules/
+dist/
+hud/src-tauri/target/
+hud/src-tauri/gen/
+
+# Secrets, local state & runtime artifacts
+.env
+.env.*
+*.token
+.vault.enc
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.log
+.DS_Store

@@ -1,0 +1,13 @@
+[Unit]
+Description=Sirius Autonomous Voice-Controlled Computer & Web Agent Daemon
+After=graphical-session.target pipewire.service
+
+[Service]
+Type=simple
+WorkingDirectory=%h/AI-Agent-Local/backend
+ExecStart=%h/.local/bin/uv run sirius --download-models
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

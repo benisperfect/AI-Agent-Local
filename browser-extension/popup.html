@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sirius Browser Bridge</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        width: 290px;
+        margin: 0;
+        padding: 14px;
+        background: #0b1120;
+        color: #e2e8f0;
+      }
+      h3 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .badge {
+        font-size: 11px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #1e293b;
+      }
+      .badge.online {
+        background: #065f46;
+        color: #6ee7b7;
+      }
+      label {
+        display: block;
+        font-size: 11px;
+        color: #94a3b8;
+        margin-top: 8px;
+      }
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 3px;
+        padding: 6px 8px;
+        border-radius: 6px;
+        border: 1px solid #334155;
+        background: #1e293b;
+        color: #f8fafc;
+        font-size: 12px;
+      }
+      button {
+        margin-top: 12px;
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 6px;
+        background: #38bdf8;
+        color: #0f172a;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      <span>Sirius Bridge</span>
+      <span id="statusBadge" class="badge">Disconnected</span>
+    </h3>
+    <label for="portInput">Daemon Port</label>
+    <input id="portInput" type="number" value="8765" />
+    <label for="tokenInput">IPC Auth Token (~/.local/share/sirius/ipc.token)</label>
+    <input id="tokenInput" type="password" placeholder="Paste IPC token..." />
+    <button id="saveBtn" type="button">Save &amp; Connect</button>
+    <script src="popup.js"></script>
+  </body>
+</html>

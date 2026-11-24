@@ -1,0 +1,100 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sirius-agent"
+version = "1.0.0"
+description = "Sirius: Cross-Platform Autonomous Voice-Controlled Computer & Web AI Agent"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Sirius Systems Architecture" }]
+dependencies = [
+    "google-genai>=1.2.0",
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.6.0",
+    "websockets>=13.1",
+    "structlog>=24.4.0",
+    "keyring>=25.5.0",
+    "cryptography>=43.0.0",
+    "numpy>=1.26.4",
+    "scipy>=1.14.1",
+    "sounddevice>=0.5.1",
+    "onnxruntime>=1.19.2",
+    "vosk>=0.3.45",
+    "faster-whisper>=1.1.0",
+    "mss>=9.0.2",
+    "pillow>=11.0.0",
+    "playwright>=1.49.0",
+    "pynput>=1.7.7",
+    "psutil>=6.1.0",
+    "mcp>=1.2.0",
+    "httpx>=0.28.0",
+    "pywinauto>=0.6.8; sys_platform == 'win32'",
+    "pycaw>=20240210; sys_platform == 'win32'",
+    "pyobjc-framework-Quartz>=10.3; sys_platform == 'darwin'",
+    "pyobjc-framework-ApplicationServices>=10.3; sys_platform == 'darwin'",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.3",
+    "pytest-asyncio>=0.24.0",
+    "mypy>=1.13.0",
+    "ruff>=0.8.0",
+]
+offline-tts = [
+    "kokoro-onnx>=0.3.0",
+]
+
+[project.scripts]
+sirius = "sirius.main:cli_main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sirius"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N", "ASYNC", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ASYNC230", "ASYNC240"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+mypy_path = "src"
+packages = ["sirius"]
+
+[[tool.mypy.overrides]]
+module = [
+    "sounddevice.*",
+    "vosk.*",
+    "faster_whisper.*",
+    "onnxruntime.*",
+    "mss.*",
+    "pynput.*",
+    "psutil.*",
+    "scipy.*",
+    "keyring.*",
+    "pywinauto.*",
+    "pycaw.*",
+    "Quartz.*",
+    "ApplicationServices.*",
+    "kokoro_onnx.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]

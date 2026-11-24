@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+html,
+body,
+#root {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.terminal-surface {
+  background-color: rgba(8, 12, 10, 0.94);
+  background-image: linear-gradient(
+    rgba(16, 185, 129, 0.03) 1px,
+    transparent 1px
+  );
+  background-size: 100% 3px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #060a08;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f352b;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
