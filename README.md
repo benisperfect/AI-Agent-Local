@@ -1,4 +1,4 @@
-# Sirius — Cross-Platform Autonomous Voice-Controlled Computer & Web AI Agent
+# Sirius — Cross-Platform Autonomous Voice-Controlled Computer & Web AI Agent (FOR FUN AND TESTING MOSTLY)
 
 Sirius is an all-in-one, cross-platform (**Windows 10/11, macOS 13+, and Linux [X11 & Wayland]**) autonomous voice-driven desktop & web agent. Say **"Hey Sirius"** to enter continuous full-duplex conversation mode, interrupt Sirius mid-sentence at any time (**barge-in**), or say **"Stop!" / "Cancel!" / "Freeze!"** (or press `Ctrl+Shift+Space` / `Cmd+Shift+Space`) for a `<100ms` local emergency abort.
 
